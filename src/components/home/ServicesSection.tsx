@@ -23,60 +23,83 @@ const services = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export const ServicesSection = () => {
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="py-12 relative overflow-hidden">
       <div className="container-custom">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-12"
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-xl mx-auto mb-10"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-foreground">استكشف</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+            <span className="text-white">استكشف</span>
             <br />
             <span className="gold-text">خدماتنا</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-gray-400 text-sm">
             اكتشف الأدوات والخدمات المصممة خصيصاً لك لتحقيق نتائج تداول حقيقية.
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {services.map((service, index) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-4"
+        >
+          {services.map((service) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <Link
                 to={service.link}
-                className="card-elevated rounded-2xl p-6 h-full flex flex-col hover-lift group block"
+                className="card-elevated rounded-xl p-5 h-full flex flex-col hover:border-primary/50 transition-colors block"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <button className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-background transition-colors">
-                    <ArrowUpLeft className="w-5 h-5" />
-                  </button>
-                  <div className="w-20 h-20 gold-gradient rounded-2xl flex items-center justify-center text-4xl">
+                <div className="flex items-start justify-between mb-3">
+                  <motion.button 
+                    whileHover={{ scale: 1.1, rotate: -10 }}
+                    className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center text-gray-400 hover:bg-primary hover:text-black transition-colors"
+                  >
+                    <ArrowUpLeft className="w-4 h-4" />
+                  </motion.button>
+                  <div className="w-14 h-14 gold-gradient rounded-xl flex items-center justify-center text-2xl">
                     {service.image}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2 text-right">
+                <h3 className="text-base font-bold text-white mb-1 text-right">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground text-right">
+                <p className="text-gray-400 text-sm text-right">
                   {service.description}
                 </p>
               </Link>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
