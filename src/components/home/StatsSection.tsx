@@ -66,31 +66,35 @@ const CountUp = ({ target, prefix = "", suffix = "" }: { target: number; prefix?
 
 export const StatsSection = () => {
   return (
-    <section className="relative py-12 overflow-hidden">
+    <section className="relative py-8 overflow-hidden">
       <div className="container-custom">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="flex items-center gap-4"
-            >
-              <div className="w-14 h-14 gold-gradient rounded-xl flex items-center justify-center">
-                <stat.icon className="w-7 h-7 text-background" />
-              </div>
-              <div className="text-right">
-                <div className="text-xl md:text-2xl font-bold">
-                  <CountUp target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+        {/* Horizontal Scrolling Stats */}
+        <div className="overflow-hidden">
+          <div className="flex gap-8 animate-scroll-left" style={{ width: 'max-content' }}>
+            {/* Duplicate stats for infinite scroll effect */}
+            {[...stats, ...stats].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: (index % 4) * 0.1 }}
+                className="flex items-center gap-3 bg-card/50 rounded-xl px-5 py-3 border border-border/50 min-w-[200px]"
+              >
+                <div className="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center">
+                  <stat.icon className="w-5 h-5 text-black" />
                 </div>
-                <div className="text-sm text-muted-foreground">
-                  {stat.label}
+                <div className="text-right">
+                  <div className="text-lg font-bold">
+                    <CountUp target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                  </div>
+                  <div className="text-xs text-gray-400">
+                    {stat.label}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { TrendingUp } from "lucide-react";
 
 const footerLinks = {
@@ -13,77 +14,97 @@ const footerLinks = {
     { label: "الشروط والأحكام", href: "/terms" },
     { label: "بيان السياسة", href: "/privacy" },
     { label: "الإفصاح عن المخاطر", href: "/risk-disclosure" },
-    { label: "سياسة الكوكيز", href: "/privacy" },
   ],
 };
 
 export const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
-      <div className="container-custom py-16">
+      <div className="container-custom py-10">
         {/* Footer Links */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Logo & Description */}
-          <div className="text-right">
-            <Link to="/" className="flex items-center gap-3 justify-end mb-6">
-              <span className="text-2xl font-bold">
-                <span className="text-foreground">Safe</span>
-                <span className="gold-text"> Pips</span>
+          <motion.div 
+            className="text-right"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Link to="/" className="flex items-center gap-2 justify-end mb-4">
+              <span className="text-xl font-bold">
+                <span className="gold-text">Pips</span>
+                <span className="text-white"> Safe</span>
               </span>
-              <div className="w-10 h-10 gold-gradient rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-background" />
+              <div className="w-8 h-8 gold-gradient rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-4 h-4 text-black" />
               </div>
             </Link>
-            <p className="text-muted-foreground">
-              منصة إشارات التداول الاحترافية. تداول بثقة مع تحليلات دقيقة واستراتيجيات مثبتة.
+            <p className="text-gray-400 text-sm">
+              منصة إشارات التداول الاحترافية. تداول بثقة.
             </p>
-          </div>
+          </motion.div>
 
           {/* Company Links */}
-          <div className="text-right">
-            <h4 className="text-primary font-bold mb-4">الشركة</h4>
-            <ul className="space-y-3">
+          <motion.div 
+            className="text-right"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            <h4 className="gold-text font-bold mb-3 text-sm">الشركة</h4>
+            <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Policies Links */}
-          <div className="text-right">
-            <h4 className="text-primary font-bold mb-4">السياسات</h4>
-            <ul className="space-y-3">
+          <motion.div 
+            className="text-right"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <h4 className="gold-text font-bold mb-3 text-sm">السياسات</h4>
+            <ul className="space-y-2">
               {footerLinks.policies.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-border text-center">
-          <p className="text-muted-foreground text-sm mb-4">
+        <motion.div 
+          className="pt-6 border-t border-border text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-gray-400 text-xs mb-2">
             © {new Date().getFullYear()} Safe Pips. جميع الحقوق محفوظة.
           </p>
-          <p className="text-muted-foreground text-xs max-w-2xl mx-auto">
-            تحذير المخاطر: التداول في الفوركس والعقود مقابل الفروقات ينطوي على مخاطر عالية. 
-            الأداء السابق لا يضمن النتائج المستقبلية. يرجى التداول بمسؤولية.
+          <p className="text-gray-500 text-[10px] max-w-xl mx-auto">
+            تحذير المخاطر: التداول ينطوي على مخاطر عالية. الأداء السابق لا يضمن النتائج المستقبلية.
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

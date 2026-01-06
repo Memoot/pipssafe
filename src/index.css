@@ -95,8 +95,23 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
   }
+}
+
+/* Horizontal Slider Animation */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 25s linear infinite;
+}
+
+.animate-scroll-left:hover {
+  animation-play-state: paused;
 }
 
 @layer components {
