@@ -5,15 +5,20 @@ import { TrendingUp } from "lucide-react";
 const footerLinks = {
   company: [
     { label: "من نحن", href: "/about" },
-    { label: "لماذا تختارنا", href: "/about" },
+    { label: "كيف نعمل", href: "/how-it-works" },
+    { label: "النتائج", href: "/results" },
     { label: "تواصل معنا", href: "/contact" },
-    { label: "الجوائز", href: "/about" },
+  ],
+  services: [
+    { label: "الباقات والأسعار", href: "/pricing" },
+    { label: "الأكاديمية", href: "/academy" },
+    { label: "الأسئلة الشائعة", href: "/faq" },
   ],
   policies: [
-    { label: "اتفاقية العميل", href: "/terms" },
-    { label: "الشروط والأحكام", href: "/terms" },
-    { label: "بيان السياسة", href: "/privacy" },
-    { label: "الإفصاح عن المخاطر", href: "/risk-disclosure" },
+    { label: "شروط الاستخدام", href: "/terms" },
+    { label: "سياسة الخصوصية", href: "/privacy" },
+    { label: "سياسة الاسترجاع", href: "/refund" },
+    { label: "إخلاء المسؤولية", href: "/risk-disclosure" },
   ],
 };
 
@@ -22,7 +27,7 @@ export const Footer = () => {
     <footer className="bg-card border-t border-border">
       <div className="container-custom py-10">
         {/* Footer Links */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <motion.div 
             className="text-right"
@@ -40,7 +45,7 @@ export const Footer = () => {
               </div>
             </Link>
             <p className="text-gray-400 text-sm">
-              منصة إشارات التداول الاحترافية. تداول بثقة.
+              منصة إشارات التداول الاحترافية. تداول بثقة مع خبراء السوق.
             </p>
           </motion.div>
 
@@ -55,6 +60,29 @@ export const Footer = () => {
             <h4 className="gold-text font-bold mb-3 text-sm">الشركة</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.href}
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Services Links */}
+          <motion.div 
+            className="text-right"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+          >
+            <h4 className="gold-text font-bold mb-3 text-sm">الخدمات</h4>
+            <ul className="space-y-2">
+              {footerLinks.services.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.href}
