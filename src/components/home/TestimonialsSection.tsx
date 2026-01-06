@@ -1,39 +1,35 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, MapPin } from "lucide-react";
 
 const testimonials = [
   {
     id: 1,
-    name: "Ahmed Al-Hassan",
-    location: "Dubai, UAE",
+    name: "يوسف",
+    location: "الإمارات",
     rating: 5,
-    text: "Safe Pips has transformed my trading journey. The signals are incredibly accurate, and the risk management guidance has helped me protect my capital while growing my account consistently.",
-    avatar: "AH",
+    text: "الانضمام إلى أكاديمية Safe Pips كان أفضل قرار اتخذته في رحلتي التداولية. التحليلات المتخصصة والإرشادات العملية كانت لا تقدر بثمن. لقد شهدت تحسنًا كبيرًا في استراتيجياتي ونتائجي.",
   },
   {
     id: 2,
-    name: "Sarah Mitchell",
-    location: "London, UK",
+    name: "أحمد",
+    location: "السعودية",
     rating: 5,
-    text: "I've tried many signal providers, but Safe Pips stands out. The team's analysis is thorough, and I've seen a 40% increase in my portfolio since joining. Highly recommended!",
-    avatar: "SM",
+    text: "خدمة ممتازة وإشارات دقيقة جداً. فريق الدعم متعاون ويرد بسرعة. أنصح بها بشدة لكل من يريد البدء في التداول.",
   },
   {
     id: 3,
-    name: "Mohammed Khalil",
-    location: "Cairo, Egypt",
+    name: "محمد",
+    location: "مصر",
     rating: 5,
-    text: "The academy courses are exceptional. I went from a complete beginner to executing trades with confidence. The support team is always there to help when I have questions.",
-    avatar: "MK",
+    text: "منصة رائعة ومحتوى تعليمي ممتاز. تعلمت الكثير من الدورات المقدمة وأصبحت أتداول بثقة أكبر الآن.",
   },
   {
     id: 4,
-    name: "Jennifer Wong",
-    location: "Singapore",
+    name: "خالد",
+    location: "الكويت",
     rating: 5,
-    text: "Professional service with consistent results. The signals are delivered on time, and the entry/exit levels are precise. Best investment I've made in my trading education.",
-    avatar: "JW",
+    text: "نسبة نجاح عالية جداً في الإشارات. أتابع الإشارات منذ 6 أشهر والنتائج ممتازة. شكراً Safe Pips!",
   },
 ];
 
@@ -57,100 +53,84 @@ export const TestimonialsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-12"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Testimonials
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            What Our <span className="gold-text">Traders Say</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <span className="text-foreground">ماذا يقول</span>
+            <span className="gold-text"> عملاؤنا</span>
+            <span className="text-foreground"> عنا</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Join thousands of satisfied traders who have transformed their 
-            trading with Safe Pips.
+          <p className="text-muted-foreground">
+            نفخر بحصولنا على تقييم 4.8 نجوم على تراست بايلوت مع أكثر من 2000 تقييم. 
+            استمع إلى ما يقوله عنا عملاؤنا!
           </p>
         </motion.div>
 
-        {/* Testimonial Carousel */}
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Quote Icon */}
-            <Quote className="absolute -top-8 -left-4 w-16 h-16 text-primary/10" />
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.4 }}
-                className="card-elevated rounded-2xl p-8 md:p-12"
-              >
-                {/* Stars */}
-                <div className="flex gap-1 mb-6">
-                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-primary fill-primary"
-                    />
-                  ))}
+        {/* Testimonial Card */}
+        <div className="max-w-3xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.4 }}
+              className="card-elevated rounded-2xl p-8"
+            >
+              {/* Header Row */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-1">
+                  <span className="text-2xl font-bold text-foreground">5.0</span>
+                  <Star className="w-6 h-6 text-primary fill-primary" />
                 </div>
-
-                {/* Text */}
-                <p className="text-lg md:text-xl text-foreground leading-relaxed mb-8">
-                  "{testimonials[currentIndex].text}"
-                </p>
-
-                {/* Author */}
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full gold-gradient flex items-center justify-center">
-                    <span className="text-lg font-bold text-background">
-                      {testimonials[currentIndex].avatar}
-                    </span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-foreground">
-                      {testimonials[currentIndex].name}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
+                <div className="flex items-center gap-3">
+                  <div className="text-right">
+                    <div className="font-bold text-foreground">{testimonials[currentIndex].name}</div>
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground justify-end">
                       {testimonials[currentIndex].location}
+                      <MapPin className="w-4 h-4" />
                     </div>
                   </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation */}
-            <div className="flex items-center justify-between mt-8">
-              <div className="flex gap-2">
-                <button
-                  onClick={prev}
-                  className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={next}
-                  className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
               </div>
 
-              {/* Dots */}
-              <div className="flex gap-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all ${
-                      index === currentIndex
-                        ? "bg-primary w-8"
-                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                    }`}
-                  />
-                ))}
-              </div>
+              {/* Text */}
+              <p className="text-foreground leading-relaxed text-right text-lg">
+                {testimonials[currentIndex].text}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Navigation */}
+          <div className="flex items-center justify-between mt-8">
+            <div className="flex gap-2">
+              <button
+                onClick={next}
+                className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+              <button
+                onClick={prev}
+                className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Dots */}
+            <div className="flex gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    index === currentIndex
+                      ? "bg-primary w-8"
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
