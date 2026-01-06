@@ -13,6 +13,15 @@ import FAQ from "./pages/FAQ";
 import HowItWorks from "./pages/HowItWorks";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Refund from "./pages/Refund";
+import RiskDisclosure from "./pages/RiskDisclosure";
+import Dashboard from "./pages/Dashboard";
+import MembersAcademy from "./pages/MembersAcademy";
+import RiskManagement from "./pages/RiskManagement";
+import Support from "./pages/Support";
+import Account from "./pages/Account";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +43,15 @@ const App = () => (
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/refund" element={<Refund />} />
+          <Route path="/risk-disclosure" element={<RiskDisclosure />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/academy" element={<MembersAcademy />} />
+          <Route path="/dashboard/risk-management" element={<RiskManagement />} />
+          <Route path="/dashboard/support" element={<Support />} />
+          <Route path="/dashboard/account" element={<Account />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
