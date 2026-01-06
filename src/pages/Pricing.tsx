@@ -6,74 +6,62 @@ import { Check, Zap, Star, Crown, Shield, Clock, Headphones, Award } from "lucid
 
 const plans = [
   {
-    name: "Starter",
+    name: "المبتدئ",
     icon: Zap,
     price: { monthly: 49, quarterly: 129, yearly: 399 },
-    description: "Perfect for beginners starting their trading journey",
+    description: "مثالي للمبتدئين في رحلة التداول",
     features: [
-      "Up to 10 signals per week",
-      "Forex signals only",
-      "Email notifications",
-      "Basic support (24h response)",
-      "Risk management guide",
-      "Access to basic lessons",
-    ],
-    notIncluded: [
-      "Crypto & Indices signals",
-      "Real-time notifications",
-      "Priority support",
-      "Full academy access",
+      "حتى 10 إشارات أسبوعياً",
+      "إشارات الفوركس فقط",
+      "إشعارات البريد الإلكتروني",
+      "دعم أساسي (رد خلال 24 ساعة)",
+      "دليل إدارة المخاطر",
+      "الوصول للدروس الأساسية",
     ],
     popular: false,
   },
   {
-    name: "Professional",
+    name: "الاحترافي",
     icon: Star,
     price: { monthly: 99, quarterly: 249, yearly: 799 },
-    description: "Most popular choice for serious traders",
+    description: "الخيار الأكثر شعبية للمتداولين الجادين",
     features: [
-      "Unlimited signals",
-      "Forex, Crypto & Indices",
-      "Real-time push notifications",
-      "Priority support (1h response)",
-      "Full academy access",
-      "Weekly market analysis",
-      "Private Telegram group",
-      "Trading journal template",
-      "Monthly webinars",
-    ],
-    notIncluded: [
-      "1-on-1 mentoring",
-      "Custom strategies",
+      "إشارات غير محدودة",
+      "فوركس، كريبتو ومؤشرات",
+      "إشعارات فورية",
+      "دعم أولوية (رد خلال ساعة)",
+      "وصول كامل للأكاديمية",
+      "تحليل أسبوعي للسوق",
+      "مجموعة تيليجرام خاصة",
+      "قالب يوميات التداول",
+      "ندوات شهرية",
     ],
     popular: true,
   },
   {
-    name: "Elite",
+    name: "النخبة",
     icon: Crown,
     price: { monthly: 199, quarterly: 499, yearly: 1599 },
-    description: "For traders who want the ultimate edge",
+    description: "للمتداولين الذين يريدون التميز",
     features: [
-      "Everything in Professional",
-      "1-on-1 mentoring sessions",
-      "Custom trading strategies",
-      "Portfolio review",
-      "VIP Discord access",
-      "Early access to features",
-      "Personal account manager",
-      "Institutional-grade analysis",
-      "Quarterly strategy review",
+      "كل مميزات الاحترافي",
+      "جلسات إرشاد فردية",
+      "استراتيجيات تداول مخصصة",
+      "مراجعة المحفظة",
+      "وصول VIP للديسكورد",
+      "الوصول المبكر للميزات",
+      "مدير حساب شخصي",
+      "تحليلات مستوى المؤسسات",
     ],
-    notIncluded: [],
     popular: false,
   },
 ];
 
 const features = [
-  { icon: Shield, title: "7-Day Guarantee", description: "Full refund if not satisfied" },
-  { icon: Clock, title: "24/7 Signals", description: "Round-the-clock coverage" },
-  { icon: Headphones, title: "Expert Support", description: "Professional assistance" },
-  { icon: Award, title: "Proven Results", description: "87%+ win rate track record" },
+  { icon: Shield, title: "ضمان 7 أيام", description: "استرداد كامل إذا لم تكن راضياً" },
+  { icon: Clock, title: "إشارات 24/7", description: "تغطية على مدار الساعة" },
+  { icon: Headphones, title: "دعم الخبراء", description: "مساعدة احترافية" },
+  { icon: Award, title: "نتائج مثبتة", description: "نسبة نجاح +87%" },
 ];
 
 const Pricing = () => {
@@ -91,11 +79,11 @@ const Pricing = () => {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Simple, Transparent <span className="gold-text">Pricing</span>
+              <span className="text-foreground">أسعار </span>
+              <span className="gold-text">بسيطة وشفافة</span>
             </h1>
             <p className="text-muted-foreground text-lg">
-              Choose the plan that fits your trading goals. No hidden fees, 
-              cancel anytime.
+              اختر الخطة التي تناسب أهدافك التداولية. بدون رسوم خفية، إلغاء في أي وقت.
             </p>
           </motion.div>
 
@@ -116,7 +104,7 @@ const Pricing = () => {
                 {plan.popular && (
                   <div className="absolute top-0 left-0 right-0 gold-gradient py-2 text-center">
                     <span className="text-sm font-bold text-background">
-                      MOST POPULAR
+                      الأكثر شعبية
                     </span>
                   </div>
                 )}
@@ -147,12 +135,12 @@ const Pricing = () => {
                     <span className="text-5xl font-bold text-foreground">
                       ${plan.price.monthly}
                     </span>
-                    <span className="text-muted-foreground">/month</span>
+                    <span className="text-muted-foreground">/شهرياً</span>
                   </div>
                   
                   <div className="text-sm text-muted-foreground mb-6">
-                    <p>Quarterly: <span className="text-foreground">${plan.price.quarterly}</span> (save 15%)</p>
-                    <p>Yearly: <span className="text-foreground">${plan.price.yearly}</span> (save 33%)</p>
+                    <p>ربع سنوي: <span className="text-foreground">${plan.price.quarterly}</span> (وفر 15%)</p>
+                    <p>سنوياً: <span className="text-foreground">${plan.price.yearly}</span> (وفر 33%)</p>
                   </div>
 
                   <ul className="space-y-3 mb-8">
@@ -174,7 +162,7 @@ const Pricing = () => {
                         : "btn-outline-gold"
                     }`}
                   >
-                    Get Started
+                    ابدأ الآن
                   </Link>
                 </div>
               </motion.div>
@@ -189,7 +177,7 @@ const Pricing = () => {
             transition={{ duration: 0.6 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
           >
-            {features.map((feature, index) => (
+            {features.map((feature) => (
               <div key={feature.title} className="text-center">
                 <div className="w-12 h-12 mx-auto mb-3 gold-gradient rounded-xl flex items-center justify-center">
                   <feature.icon className="w-6 h-6 text-background" />
@@ -198,25 +186,6 @@ const Pricing = () => {
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
               </div>
             ))}
-          </motion.div>
-
-          {/* FAQ Teaser */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-20 text-center"
-          >
-            <p className="text-muted-foreground mb-4">
-              Have questions about our plans?
-            </p>
-            <Link
-              to="/faq"
-              className="text-primary font-semibold hover:underline"
-            >
-              Check our FAQ →
-            </Link>
           </motion.div>
         </div>
       </main>

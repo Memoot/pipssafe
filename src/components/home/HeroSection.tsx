@@ -1,185 +1,110 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Play, Shield, TrendingUp, Zap } from "lucide-react";
+import { ArrowUpLeft, CheckCircle } from "lucide-react";
+import heroImage from "@/assets/hero-trading-phone.png";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Animated Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: "100px 100px",
-          }}
-        />
-        
-        {/* Gradient orbs */}
+    <section className="relative pt-24 pb-8 overflow-hidden">
+      <div className="container-custom">
+        {/* License Badge */}
         <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-[128px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-1/4 -right-32 w-96 h-96 bg-primary/20 rounded-full blur-[128px]"
-        />
-
-        {/* Floating chart lines */}
-        <svg
-          className="absolute inset-0 w-full h-full opacity-10"
-          viewBox="0 0 1200 800"
-          preserveAspectRatio="none"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center mb-8"
         >
-          <motion.path
-            d="M0,400 Q200,350 400,380 T800,350 T1200,400"
-            stroke="url(#goldGradient)"
-            strokeWidth="2"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 3, ease: "easeInOut" }}
-          />
-          <motion.path
-            d="M0,450 Q300,400 600,420 T1200,380"
-            stroke="url(#goldGradient)"
-            strokeWidth="1.5"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 3.5, delay: 0.5, ease: "easeInOut" }}
-          />
-          <defs>
-            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="hsl(45, 100%, 51%)" />
-              <stop offset="100%" stopColor="hsl(38, 100%, 45%)" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      <div className="container-custom relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
-          >
-            <Shield className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">
-              Trusted by 10,000+ Traders Worldwide
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-[#2a2a2a] border border-border">
+            <span className="text-foreground text-sm md:text-base">
+              منصة موثوقة ومعتمدة لإشارات التداول الاحترافية
             </span>
-          </motion.div>
-
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
-          >
-            Trade Smarter.
-            <br />
-            <span className="gold-text">Trade with Safe Pips</span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
-          >
-            Professional trading signals with institutional-grade analysis. 
-            Join thousands of successful traders who trust our expert strategies 
-            to grow their portfolio.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-          >
-            <Link
-              to="/register"
-              className="btn-gold px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2 group"
-            >
-              Start Trading Now
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              to="/results"
-              className="btn-outline-gold px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
-            >
-              <Play className="w-5 h-5" />
-              View Our Results
-            </Link>
-          </motion.div>
-
-          {/* Feature Pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-4"
-          >
-            {[
-              { icon: TrendingUp, text: "87% Win Rate" },
-              { icon: Zap, text: "Real-Time Signals" },
-              { icon: Shield, text: "Risk Management" },
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.text}
-                whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border"
-              >
-                <feature.icon className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-foreground">
-                  {feature.text}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2"
-        >
-          <motion.div className="w-1.5 h-1.5 rounded-full bg-primary" />
+            <CheckCircle className="w-6 h-6 text-green-500" />
+          </div>
         </motion.div>
-      </motion.div>
+
+        {/* Main Headline */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-center mb-6"
+        >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
+            <span className="text-foreground">تداول </span>
+            <span className="gold-text">بثقة</span>
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            مع إشارات تداول احترافية تعمل وفق معايير دقيقة ومعتمدة
+          </p>
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center mb-10"
+        >
+          <Link
+            to="/register"
+            className="btn-gold w-full max-w-md py-5 rounded-2xl text-xl font-bold flex items-center justify-center gap-3"
+          >
+            <span>افتح حساب</span>
+            <div className="w-10 h-10 bg-background/20 rounded-lg flex items-center justify-center">
+              <ArrowUpLeft className="w-5 h-5" />
+            </div>
+          </Link>
+        </motion.div>
+
+        {/* Hero Image - Phone Mockup */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="relative"
+        >
+          <div className="relative bg-gradient-to-br from-primary via-primary to-primary/80 rounded-3xl p-8 overflow-hidden min-h-[400px]">
+            {/* Dotted Pattern Background */}
+            <div 
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.3) 1px, transparent 1px)',
+                backgroundSize: '20px 20px'
+              }}
+            />
+            
+            <div className="relative flex flex-col md:flex-row items-center justify-between gap-8">
+              {/* Phone Image - Right side in RTL */}
+              <div className="flex-1 flex justify-center order-1 md:order-2">
+                <img 
+                  src={heroImage} 
+                  alt="تطبيق Safe Pips للتداول"
+                  className="max-w-[250px] md:max-w-[300px] drop-shadow-2xl"
+                />
+              </div>
+
+              {/* Text Content - Left side in RTL */}
+              <div className="text-center md:text-right flex-1 order-2 md:order-1">
+                <div className="mb-4">
+                  <span className="text-background/80">استكشف أكثر من </span>
+                  <span className="text-3xl md:text-4xl font-bold gold-text">330</span>
+                </div>
+                <p className="text-background/70 text-lg">فرصة تداول</p>
+              </div>
+
+              {/* Trading Widget */}
+              <div className="absolute top-4 right-4 bg-white rounded-xl p-3 shadow-lg hidden md:flex items-center gap-2">
+                <span className="bg-green-100 text-green-600 text-xs px-2 py-1 rounded">0.710</span>
+                <div className="text-right">
+                  <div className="text-sm font-bold text-background">UK100</div>
+                  <div className="text-xs text-red-500">5841.47 ▼</div>
+                </div>
+                <img src="https://flagcdn.com/w40/gb.png" alt="UK" className="w-8 h-6 rounded" />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

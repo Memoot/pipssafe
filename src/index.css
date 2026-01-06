@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
-/* Safe Pips - Premium Trading Platform Design System */
+/* Safe Pips - Premium Trading Platform Design System - Arabic RTL */
 
 @layer base {
   :root {
@@ -92,11 +90,12 @@
 
   html {
     scroll-behavior: smooth;
+    direction: rtl;
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Cairo', sans-serif;
   }
 }
 
