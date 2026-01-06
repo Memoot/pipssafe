@@ -2,20 +2,21 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/", label: "الرئيسية" },
   { href: "/results", label: "النتائج" },
-  { href: "/pricing", label: "الأسعار" },
+  { href: "/pricing", label: "الباقات" },
   { href: "/academy", label: "الأكاديمية" },
-  { href: "/how-it-works", label: "كيف تعمل" },
+  { href: "/how-it-works", label: "كيف نعمل" },
   { href: "/about", label: "من نحن" },
+  { href: "/faq", label: "الأسئلة" },
   { href: "/contact", label: "تواصل معنا" },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
   const location = useLocation();
 
   return (
@@ -23,58 +24,37 @@ export const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-sm border-b border-border/30"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#0d0d0d]/95 backdrop-blur-sm border-b border-border/30"
     >
-      <nav className="container-custom">
+      <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Right Side - Menu Button (Mobile) */}
+          {/* Auth Buttons */}
           <div className="flex items-center gap-3">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-black bg-white rounded-lg"
+              className="lg:hidden p-2 text-white"
             >
-              <Menu className="w-4 h-4" />
-            </motion.button>
-
-            {/* Language Selector */}
-            <div className="relative">
-              <button
-                onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1.5 text-white hover:text-primary transition-colors"
-              >
-                <ChevronDown className="w-3 h-3" />
-                <span className="text-xs font-medium">عربي</span>
-                <span className="text-base">🇮🇶</span>
-              </button>
-              <AnimatePresence>
-                {langOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full right-0 mt-2 bg-card border border-border rounded-lg shadow-xl overflow-hidden min-w-[100px] z-50"
-                  >
-                    <button className="w-full px-3 py-2 text-xs text-right hover:bg-muted flex items-center gap-2 justify-end text-white">
-                      عربي <span>🇮🇶</span>
-                    </button>
-                    <button className="w-full px-3 py-2 text-xs text-right hover:bg-muted flex items-center gap-2 justify-end text-white">
-                      English <span>🇬🇧</span>
-                    </button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+            <Link to="/login" className="hidden sm:block">
+              <Button variant="ghost" size="sm" className="text-white hover:text-gold text-xs">
+                تسجيل الدخول
+              </Button>
+            </Link>
+            <Link to="/register">
+              <Button className="btn-gold text-xs px-4">
+                إنشاء حساب
+              </Button>
+            </Link>
           </div>
 
-          {/* Desktop Navigation - Center */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`relative text-xs font-medium transition-colors duration-300 ${
+                className={`text-xs font-medium transition-colors ${
                   location.pathname === link.href
                     ? "gold-text"
                     : "text-gray-400 hover:text-white"
@@ -85,19 +65,15 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* Left Side - Logo */}
+          {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <motion.div 
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-              className="w-8 h-8 gold-gradient rounded-lg flex items-center justify-center"
-            >
-              <TrendingUp className="w-4 h-4 text-black" />
-            </motion.div>
             <span className="text-lg font-bold">
               <span className="gold-text">Pips</span>
               <span className="text-white"> Safe</span>
             </span>
+            <div className="w-8 h-8 gold-gradient rounded-lg flex items-center justify-center">
+              <TrendingUp className="w-4 h-4 text-black" />
+            </div>
           </Link>
         </div>
       </nav>
@@ -109,49 +85,36 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-[#1a1a1a] border-t border-border"
+            className="lg:hidden bg-[#0d0d0d] border-t border-border"
           >
-            <div className="container-custom py-4 flex flex-col gap-3">
-              {/* Auth Buttons */}
-              <div className="flex gap-3 mb-3">
-                <Link
-                  to="/register"
-                  onClick={() => setIsOpen(false)}
-                  className="flex-1 btn-gold py-2.5 rounded-lg text-center font-semibold text-sm"
-                >
-                  التسجيل
-                </Link>
-                <Link
-                  to="/login"
-                  onClick={() => setIsOpen(false)}
-                  className="flex-1 btn-outline-gold py-2.5 rounded-lg text-center font-semibold text-sm"
-                >
-                  تسجيل الدخول
-                </Link>
-              </div>
-
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="border-b border-border/50 pb-2"
                 >
                   <Link
                     to={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center justify-between py-1.5 text-sm font-medium ${
+                    className={`block py-2 text-sm font-medium text-right ${
                       location.pathname === link.href
                         ? "gold-text"
                         : "text-white"
                     }`}
                   >
-                    <ChevronDown className="w-4 h-4 rotate-90 text-gray-400" />
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
+              <div className="pt-4 border-t border-border mt-2">
+                <Link to="/login" onClick={() => setIsOpen(false)}>
+                  <Button variant="outline" className="w-full mb-2">
+                    تسجيل الدخول
+                  </Button>
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

@@ -22,6 +22,13 @@ import MembersAcademy from "./pages/MembersAcademy";
 import RiskManagement from "./pages/RiskManagement";
 import Support from "./pages/Support";
 import Account from "./pages/Account";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminPlans from "./pages/admin/AdminPlans";
+import AdminSubscriptions from "./pages/admin/AdminSubscriptions";
+import AdminCourses from "./pages/admin/AdminCourses";
+import AdminReports from "./pages/admin/AdminReports";
+import AdminNotifications from "./pages/admin/AdminNotifications";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +40,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          {/* Public Pages */}
           <Route path="/" element={<Index />} />
           <Route path="/results" element={<Results />} />
           <Route path="/pricing" element={<Pricing />} />
@@ -47,11 +55,23 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/refund" element={<Refund />} />
           <Route path="/risk-disclosure" element={<RiskDisclosure />} />
+          
+          {/* Members Area */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/academy" element={<MembersAcademy />} />
           <Route path="/dashboard/risk-management" element={<RiskManagement />} />
           <Route path="/dashboard/support" element={<Support />} />
           <Route path="/dashboard/account" element={<Account />} />
+          
+          {/* Admin Panel */}
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
+          <Route path="/admin/plans" element={<AdminPlans />} />
+          <Route path="/admin/subscriptions" element={<AdminSubscriptions />} />
+          <Route path="/admin/courses" element={<AdminCourses />} />
+          <Route path="/admin/reports" element={<AdminReports />} />
+          <Route path="/admin/notifications" element={<AdminNotifications />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
