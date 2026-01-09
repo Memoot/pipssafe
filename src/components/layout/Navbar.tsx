@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, TrendingUp } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { href: "/", label: "الرئيسية" },
@@ -37,7 +38,7 @@ export const Navbar = () => {
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
             <Link to="/login" className="hidden sm:block">
-              <Button variant="ghost" size="sm" className="text-white hover:text-gold text-xs">
+              <Button variant="ghost" size="sm" className="text-white hover:text-primary text-xs">
                 تسجيل الدخول
               </Button>
             </Link>
@@ -68,12 +69,10 @@ export const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <span className="text-lg font-bold">
-              <span className="gold-text">Pips</span>
-              <span className="text-white"> Safe</span>
+              <span className="gold-text">Safe</span>
+              <span className="text-white"> Pips</span>
             </span>
-            <div className="w-8 h-8 gold-gradient rounded-lg flex items-center justify-center">
-              <TrendingUp className="w-4 h-4 text-black" />
-            </div>
+            <img src={logo} alt="Safe Pips Logo" className="w-10 h-10 object-contain" />
           </Link>
         </div>
       </nav>

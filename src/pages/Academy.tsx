@@ -2,33 +2,33 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Play, Lock, Clock, BookOpen, Award, Users, CheckCircle } from "lucide-react";
+import { Play, Lock, Clock, BookOpen, Award, Users } from "lucide-react";
 
 const freeCourses = [
   {
     id: 1,
-    title: "Trading Fundamentals",
+    title: "أساسيات التداول",
     lessons: 5,
-    duration: "1.5 hours",
-    level: "Beginner",
+    duration: "1.5 ساعة",
+    level: "مبتدئ",
     image: "📈",
     free: true,
   },
   {
     id: 2,
-    title: "Understanding Risk Management",
+    title: "فهم إدارة المخاطر",
     lessons: 4,
-    duration: "1 hour",
-    level: "Beginner",
+    duration: "1 ساعة",
+    level: "مبتدئ",
     image: "🛡️",
     free: true,
   },
   {
     id: 3,
-    title: "Reading Price Action",
+    title: "قراءة حركة السعر",
     lessons: 6,
-    duration: "2 hours",
-    level: "Beginner",
+    duration: "2 ساعة",
+    level: "مبتدئ",
     image: "📊",
     free: true,
   },
@@ -37,46 +37,46 @@ const freeCourses = [
 const premiumCourses = [
   {
     id: 4,
-    title: "Advanced Technical Analysis",
+    title: "التحليل الفني المتقدم",
     lessons: 12,
-    duration: "6 hours",
-    level: "Intermediate",
+    duration: "6 ساعات",
+    level: "متوسط",
     image: "📉",
     progress: 0,
   },
   {
     id: 5,
-    title: "Smart Money Concepts",
+    title: "مفاهيم الأموال الذكية",
     lessons: 15,
-    duration: "8 hours",
-    level: "Advanced",
+    duration: "8 ساعات",
+    level: "متقدم",
     image: "💰",
     progress: 0,
   },
   {
     id: 6,
-    title: "Psychology of Trading",
+    title: "سيكولوجية التداول",
     lessons: 8,
-    duration: "4 hours",
-    level: "Intermediate",
+    duration: "4 ساعات",
+    level: "متوسط",
     image: "🧠",
     progress: 0,
   },
   {
     id: 7,
-    title: "Crypto Trading Mastery",
+    title: "احتراف تداول الكريبتو",
     lessons: 10,
-    duration: "5 hours",
-    level: "Intermediate",
+    duration: "5 ساعات",
+    level: "متوسط",
     image: "₿",
     progress: 0,
   },
   {
     id: 8,
-    title: "Building Your Trading System",
+    title: "بناء نظام التداول الخاص بك",
     lessons: 14,
-    duration: "7 hours",
-    level: "Advanced",
+    duration: "7 ساعات",
+    level: "متقدم",
     image: "⚙️",
     progress: 0,
   },
@@ -97,11 +97,12 @@ const Academy = () => {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Trading <span className="gold-text">Academy</span>
+              <span className="text-foreground">أكاديمية </span>
+              <span className="gold-text">Safe Pips</span>
             </h1>
             <p className="text-muted-foreground text-lg">
-              Master the art of trading with our comprehensive courses designed 
-              by professional traders with years of market experience.
+              أتقن فن التداول مع دوراتنا الشاملة المصممة من قبل متداولين محترفين 
+              لديهم سنوات من الخبرة في الأسواق.
             </p>
           </motion.div>
 
@@ -113,10 +114,10 @@ const Academy = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
           >
             {[
-              { icon: BookOpen, label: "Courses", value: "15+" },
-              { icon: Play, label: "Video Hours", value: "50+" },
-              { icon: Users, label: "Students", value: "8,000+" },
-              { icon: Award, label: "Certificates", value: "5,000+" },
+              { icon: BookOpen, label: "دورة", value: "+15" },
+              { icon: Play, label: "ساعة فيديو", value: "+50" },
+              { icon: Users, label: "طالب", value: "+8,000" },
+              { icon: Award, label: "شهادة", value: "+5,000" },
             ].map((stat) => (
               <div key={stat.label} className="card-elevated rounded-xl p-4 text-center">
                 <stat.icon className="w-6 h-6 text-primary mx-auto mb-2" />
@@ -135,10 +136,10 @@ const Academy = () => {
           >
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold text-foreground">
-                Free Courses
+                الدورات المجانية
               </h2>
               <span className="text-sm text-primary font-medium">
-                No subscription required
+                لا يتطلب اشتراك
               </span>
             </div>
 
@@ -157,7 +158,7 @@ const Academy = () => {
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="px-2 py-1 text-xs font-medium bg-green-500/10 text-green-500 rounded">
-                        FREE
+                        مجاني
                       </span>
                       <span className="px-2 py-1 text-xs font-medium bg-muted text-muted-foreground rounded">
                         {course.level}
@@ -169,7 +170,7 @@ const Academy = () => {
                     <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                       <span className="flex items-center gap-1">
                         <BookOpen className="w-4 h-4" />
-                        {course.lessons} lessons
+                        {course.lessons} درس
                       </span>
                       <span className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
@@ -178,7 +179,7 @@ const Academy = () => {
                     </div>
                     <button className="w-full btn-gold py-2.5 rounded-xl flex items-center justify-center gap-2">
                       <Play className="w-4 h-4" />
-                      Start Learning
+                      ابدأ التعلم
                     </button>
                   </div>
                 </motion.div>
@@ -195,10 +196,10 @@ const Academy = () => {
           >
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold text-foreground">
-                Premium Courses
+                الدورات المميزة
               </h2>
               <Link to="/pricing" className="text-sm text-primary font-medium hover:underline">
-                View subscription plans →
+                عرض خطط الاشتراك ←
               </Link>
             </div>
 
@@ -216,7 +217,7 @@ const Academy = () => {
                   <div className="absolute inset-0 bg-background/60 backdrop-blur-sm z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="text-center">
                       <Lock className="w-10 h-10 text-primary mx-auto mb-2" />
-                      <p className="text-foreground font-medium">Subscribe to unlock</p>
+                      <p className="text-foreground font-medium">اشترك للفتح</p>
                     </div>
                   </div>
 
@@ -226,7 +227,7 @@ const Academy = () => {
                   <div className="p-5">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded">
-                        PREMIUM
+                        مميز
                       </span>
                       <span className="px-2 py-1 text-xs font-medium bg-muted text-muted-foreground rounded">
                         {course.level}
@@ -238,7 +239,7 @@ const Academy = () => {
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <BookOpen className="w-4 h-4" />
-                        {course.lessons} lessons
+                        {course.lessons} درس
                       </span>
                       <span className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
@@ -260,17 +261,16 @@ const Academy = () => {
             className="mt-20 text-center card-elevated rounded-2xl p-12"
           >
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Ready to become a <span className="gold-text">pro trader</span>?
+              هل أنت مستعد لتصبح <span className="gold-text">متداولاً محترفاً</span>؟
             </h3>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Get full access to all courses, live sessions, and mentoring with 
-              our Professional or Elite subscription.
+              احصل على وصول كامل لجميع الدورات والجلسات المباشرة والإرشاد مع اشتراكنا الاحترافي أو النخبة.
             </p>
             <Link
               to="/pricing"
               className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold"
             >
-              View Pricing Plans
+              عرض خطط الأسعار
             </Link>
           </motion.div>
         </div>

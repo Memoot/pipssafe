@@ -8,49 +8,49 @@ const steps = [
   {
     icon: UserPlus,
     step: 1,
-    title: "Create Your Account",
-    description: "Sign up in less than 2 minutes. Choose the subscription plan that fits your trading goals and budget. No complex setup required.",
+    title: "أنشئ حسابك",
+    description: "سجل في أقل من دقيقتين. اختر خطة الاشتراك التي تناسب أهدافك وميزانيتك. لا يوجد إعداد معقد.",
     details: [
-      "Quick registration process",
-      "Flexible plan options",
-      "Secure payment processing",
-      "Instant account activation",
+      "عملية تسجيل سريعة",
+      "خيارات خطط مرنة",
+      "معالجة دفع آمنة",
+      "تفعيل فوري للحساب",
     ],
   },
   {
     icon: Bell,
     step: 2,
-    title: "Receive Real-Time Signals",
-    description: "Get professional trading signals delivered directly to your device. Each signal includes complete trade details for easy execution.",
+    title: "استلم الإشارات الفورية",
+    description: "احصل على إشارات تداول احترافية مباشرة على جهازك. كل إشارة تتضمن تفاصيل الصفقة الكاملة.",
     details: [
-      "Entry price with exact level",
-      "Stop-loss for risk protection",
-      "Take-profit targets (TP1, TP2, TP3)",
-      "Real-time notifications",
+      "سعر الدخول بالمستوى الدقيق",
+      "وقف الخسارة للحماية",
+      "أهداف جني الأرباح (TP1, TP2, TP3)",
+      "إشعارات فورية",
     ],
   },
   {
     icon: LineChart,
     step: 3,
-    title: "Execute Your Trades",
-    description: "Open your preferred broker platform and place the trade according to our signal. We support all major forex and crypto brokers.",
+    title: "نفذ صفقاتك",
+    description: "افتح منصة الوسيط المفضلة لديك وضع الصفقة حسب إشارتنا. ندعم جميع وسطاء الفوركس والكريبتو.",
     details: [
-      "Works with any MT4/MT5 broker",
-      "Compatible with crypto exchanges",
-      "Simple copy-paste execution",
-      "Position size calculator included",
+      "يعمل مع أي وسيط MT4/MT5",
+      "متوافق مع منصات الكريبتو",
+      "تنفيذ بسيط بالنسخ واللصق",
+      "حاسبة حجم الصفقة مضمنة",
     ],
   },
   {
     icon: Shield,
     step: 4,
-    title: "Manage Risk & Grow",
-    description: "Follow our risk management guidelines to protect your capital while growing your account consistently over time.",
+    title: "أدر المخاطر وانمو",
+    description: "اتبع إرشادات إدارة المخاطر لحماية رأس مالك مع تنمية حسابك باستمرار.",
     details: [
-      "Risk 1-2% per trade maximum",
-      "Use our position size calculator",
-      "Track your progress in dashboard",
-      "Learn from our academy courses",
+      "خاطر بـ 1-2% كحد أقصى لكل صفقة",
+      "استخدم حاسبة حجم الصفقة",
+      "تتبع تقدمك في لوحة التحكم",
+      "تعلم من دورات الأكاديمية",
     ],
   },
 ];
@@ -58,23 +58,23 @@ const steps = [
 const features = [
   {
     icon: Smartphone,
-    title: "Multi-Platform Delivery",
-    description: "Receive signals via email, web app, Telegram, and push notifications.",
+    title: "توصيل متعدد المنصات",
+    description: "استلم الإشارات عبر البريد والتطبيق وتليجرام والإشعارات.",
   },
   {
     icon: Clock,
-    title: "24/7 Market Coverage",
-    description: "We monitor markets around the clock to never miss an opportunity.",
+    title: "تغطية السوق 24/7",
+    description: "نراقب الأسواق على مدار الساعة لعدم تفويت أي فرصة.",
   },
   {
     icon: Target,
-    title: "Clear Trade Levels",
-    description: "Every signal includes entry, stop-loss, and multiple take-profit levels.",
+    title: "مستويات تداول واضحة",
+    description: "كل إشارة تتضمن الدخول ووقف الخسارة وأهداف متعددة.",
   },
   {
     icon: CheckCircle,
-    title: "Verified Results",
-    description: "Transparent track record with 87%+ win rate and detailed history.",
+    title: "نتائج موثقة",
+    description: "سجل شفاف بنسبة نجاح +87% وتاريخ مفصل.",
   },
 ];
 
@@ -93,11 +93,12 @@ const HowItWorks = () => {
             className="text-center max-w-3xl mx-auto mb-20"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              How It <span className="gold-text">Works</span>
+              <span className="text-foreground">كيف </span>
+              <span className="gold-text">نعمل</span>
             </h1>
             <p className="text-muted-foreground text-lg">
-              Start trading like a professional in four simple steps. Our platform 
-              is designed to make trading signals accessible to everyone.
+              ابدأ التداول مثل المحترفين في أربع خطوات بسيطة. منصتنا مصممة 
+              لجعل إشارات التداول متاحة للجميع.
             </p>
           </motion.div>
 
@@ -114,7 +115,7 @@ const HowItWorks = () => {
               >
                 {/* Connector Line */}
                 {index < steps.length - 1 && (
-                  <div className="absolute left-8 top-20 w-0.5 h-32 bg-gradient-to-b from-primary to-border hidden md:block" />
+                  <div className="absolute right-8 top-20 w-0.5 h-32 bg-gradient-to-b from-primary to-border hidden md:block" />
                 )}
 
                 <div className="flex gap-6 md:gap-8">
@@ -123,7 +124,7 @@ const HowItWorks = () => {
                     <div className="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center">
                       <step.icon className="w-8 h-8 text-background" />
                     </div>
-                    <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-foreground text-background text-xs font-bold flex items-center justify-center">
+                    <span className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-foreground text-background text-xs font-bold flex items-center justify-center">
                       {step.step}
                     </span>
                   </div>
@@ -159,7 +160,8 @@ const HowItWorks = () => {
             className="mb-20"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-              What Makes Our <span className="gold-text">Signals Different</span>
+              <span className="text-foreground">ما الذي يميز </span>
+              <span className="gold-text">إشاراتنا</span>
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {features.map((feature, index) => (
@@ -190,22 +192,23 @@ const HowItWorks = () => {
             className="max-w-2xl mx-auto mb-20"
           >
             <h2 className="text-2xl font-bold text-center mb-8">
-              Example <span className="gold-text">Signal Format</span>
+              <span className="text-foreground">مثال على </span>
+              <span className="gold-text">صيغة الإشارة</span>
             </h2>
             <div className="card-elevated rounded-2xl p-6 md:p-8 font-mono text-sm">
               <div className="flex items-center gap-2 text-primary font-bold mb-4">
-                <span className="px-2 py-1 gold-gradient text-background rounded text-xs">BUY</span>
+                <span className="px-2 py-1 gold-gradient text-background rounded text-xs">شراء</span>
                 <span className="text-lg">EUR/USD</span>
               </div>
               <div className="space-y-2 text-foreground">
-                <p>📍 Entry: <span className="text-primary">1.0850</span></p>
-                <p>🛑 Stop Loss: <span className="text-red-500">1.0810</span></p>
-                <p>✅ Take Profit 1: <span className="text-green-500">1.0890</span></p>
-                <p>✅ Take Profit 2: <span className="text-green-500">1.0920</span></p>
-                <p>✅ Take Profit 3: <span className="text-green-500">1.0950</span></p>
+                <p>📍 الدخول: <span className="text-primary">1.0850</span></p>
+                <p>🛑 وقف الخسارة: <span className="text-red-500">1.0810</span></p>
+                <p>✅ الهدف الأول: <span className="text-green-500">1.0890</span></p>
+                <p>✅ الهدف الثاني: <span className="text-green-500">1.0920</span></p>
+                <p>✅ الهدف الثالث: <span className="text-green-500">1.0950</span></p>
               </div>
               <div className="mt-4 pt-4 border-t border-border text-muted-foreground">
-                💡 Analysis: Strong support bounce with bullish divergence on H4
+                💡 التحليل: ارتداد قوي من الدعم مع تباين صعودي على H4
               </div>
             </div>
           </motion.div>
@@ -219,23 +222,24 @@ const HowItWorks = () => {
             className="text-center card-elevated rounded-2xl p-12 max-w-3xl mx-auto"
           >
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Ready to Start <span className="gold-text">Trading?</span>
+              <span className="text-foreground">هل أنت مستعد لبدء </span>
+              <span className="gold-text">التداول؟</span>
             </h3>
             <p className="text-muted-foreground mb-8">
-              Join thousands of traders who are already profiting from our signals.
+              انضم لآلاف المتداولين الذين يحققون أرباحاً من إشاراتنا.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/register"
                 className="btn-gold px-8 py-4 rounded-xl font-semibold"
               >
-                Start Free Trial
+                ابدأ تجربة مجانية
               </Link>
               <Link
                 to="/results"
                 className="btn-outline-gold px-8 py-4 rounded-xl font-semibold"
               >
-                View Our Results
+                عرض نتائجنا
               </Link>
             </div>
           </motion.div>
