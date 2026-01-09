@@ -6,31 +6,31 @@ import { Target, Eye, Shield, Award, Users, TrendingUp } from "lucide-react";
 const values = [
   {
     icon: Shield,
-    title: "Trust & Transparency",
-    description: "We provide verified results and never hide our performance. What you see is what you get.",
+    title: "الثقة والشفافية",
+    description: "نقدم نتائج موثقة ولا نخفي أداءنا أبداً. ما تراه هو ما تحصل عليه.",
   },
   {
     icon: Target,
-    title: "Precision",
-    description: "Every signal is meticulously analyzed using institutional-grade methodologies.",
+    title: "الدقة",
+    description: "يتم تحليل كل إشارة بدقة باستخدام منهجيات مستوى المؤسسات.",
   },
   {
     icon: Users,
-    title: "Community",
-    description: "We believe in growing together. Our traders support each other on the journey to success.",
+    title: "المجتمع",
+    description: "نؤمن بالنمو معاً. متداولونا يدعمون بعضهم البعض في رحلة النجاح.",
   },
   {
     icon: Award,
-    title: "Excellence",
-    description: "We continuously improve our strategies and services to deliver the best results.",
+    title: "التميز",
+    description: "نعمل باستمرار على تحسين استراتيجياتنا وخدماتنا لتقديم أفضل النتائج.",
   },
 ];
 
 const stats = [
-  { value: "2019", label: "Founded" },
-  { value: "10,000+", label: "Active Members" },
-  { value: "87%+", label: "Win Rate" },
-  { value: "50+", label: "Countries" },
+  { value: "2019", label: "تأسست" },
+  { value: "+10,000", label: "عضو نشط" },
+  { value: "+87%", label: "نسبة النجاح" },
+  { value: "+50", label: "دولة" },
 ];
 
 const About = () => {
@@ -48,12 +48,12 @@ const About = () => {
             className="text-center max-w-4xl mx-auto mb-20"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="gold-text">Safe Pips</span>
+              <span className="text-foreground">عن </span>
+              <span className="gold-text">Safe Pips</span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              We're a team of professional traders and analysts dedicated to 
-              helping traders worldwide achieve consistent profitability through 
-              expert signals and education.
+              نحن فريق من المتداولين والمحللين المحترفين المكرسين لمساعدة المتداولين 
+              حول العالم على تحقيق ربحية مستمرة من خلال إشارات الخبراء والتعليم.
             </p>
           </motion.div>
 
@@ -84,12 +84,11 @@ const About = () => {
               <div className="w-14 h-14 gold-gradient rounded-xl flex items-center justify-center mb-6">
                 <Target className="w-7 h-7 text-background" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-4">Our Mission</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">مهمتنا</h2>
               <p className="text-muted-foreground leading-relaxed">
-                To democratize professional trading by providing retail traders with 
-                the same quality analysis and signals that institutional traders use. 
-                We believe everyone deserves access to the tools and knowledge needed 
-                to succeed in the financial markets.
+                إضفاء الطابع الديمقراطي على التداول الاحترافي من خلال تزويد المتداولين الأفراد 
+                بنفس جودة التحليل والإشارات التي يستخدمها المتداولون المؤسسيون. 
+                نؤمن أن الجميع يستحق الوصول إلى الأدوات والمعرفة اللازمة للنجاح في الأسواق المالية.
               </p>
             </motion.div>
 
@@ -103,12 +102,11 @@ const About = () => {
               <div className="w-14 h-14 gold-gradient rounded-xl flex items-center justify-center mb-6">
                 <Eye className="w-7 h-7 text-background" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-4">Our Vision</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">رؤيتنا</h2>
               <p className="text-muted-foreground leading-relaxed">
-                To become the world's most trusted trading signals and education 
-                platform, known for transparency, consistent results, and exceptional 
-                trader success stories. We envision a community where traders support 
-                each other in achieving financial independence.
+                أن نصبح أكثر منصة توصيات وتعليم تداول موثوقة في العالم، 
+                معروفة بالشفافية والنتائج المتسقة وقصص النجاح الاستثنائية. 
+                نتصور مجتمعاً يدعم فيه المتداولون بعضهم البعض لتحقيق الاستقلال المالي.
               </p>
             </motion.div>
           </div>
@@ -123,11 +121,11 @@ const About = () => {
           >
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Why Choose <span className="gold-text">Safe Pips</span>?
+                <span className="text-foreground">لماذا تختار </span>
+                <span className="gold-text">Safe Pips</span>؟
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                We stand apart from other signal providers through our commitment 
-                to these core values.
+                نتميز عن مزودي الإشارات الآخرين من خلال التزامنا بهذه القيم الأساسية.
               </p>
             </div>
 
@@ -160,25 +158,23 @@ const About = () => {
             className="card-elevated rounded-2xl p-8 md:p-12"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-              Our Story
+              قصتنا
             </h2>
             <div className="prose prose-invert max-w-none">
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Safe Pips was founded in 2019 by a group of professional traders who 
-                saw a significant gap in the market for reliable, transparent trading 
-                signals. Frustrated by the lack of accountability in the industry, they 
-                set out to create a service that would prioritize member success above all else.
+                تأسست Safe Pips في عام 2019 من قبل مجموعة من المتداولين المحترفين الذين 
+                رأوا فجوة كبيرة في السوق لإشارات تداول موثوقة وشفافة. محبطين من نقص 
+                المساءلة في الصناعة، شرعوا في إنشاء خدمة تعطي الأولوية لنجاح الأعضاء فوق كل شيء.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Starting with just a handful of members, we focused on delivering consistent 
-                results while building a supportive community. Word spread quickly, and today 
-                we serve over 10,000 active traders across more than 50 countries.
+                بدءاً بعدد قليل من الأعضاء، ركزنا على تقديم نتائج متسقة مع بناء مجتمع داعم. 
+                انتشرت الكلمة بسرعة، واليوم نخدم أكثر من 10,000 متداول نشط في أكثر من 50 دولة.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Our team now includes analysts, educators, and support specialists, all united 
-                by a common goal: to help our members achieve their trading goals. We continue 
-                to evolve, adding new features and courses based on member feedback, always 
-                staying true to our founding principles of trust, transparency, and excellence.
+                يضم فريقنا الآن محللين ومعلمين ومتخصصين في الدعم، يجمعهم جميعاً هدف مشترك: 
+                مساعدة أعضائنا على تحقيق أهدافهم في التداول. نستمر في التطور، نضيف ميزات 
+                ودورات جديدة بناءً على ملاحظات الأعضاء، ونبقى دائماً صادقين مع مبادئنا التأسيسية 
+                المتمثلة في الثقة والشفافية والتميز.
               </p>
             </div>
           </motion.div>

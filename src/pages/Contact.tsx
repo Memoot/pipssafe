@@ -2,27 +2,27 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Mail, Phone, MapPin, Send, MessageSquare, Clock } from "lucide-react";
+import { Mail, Send, MessageSquare, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const contactInfo = [
   {
     icon: Mail,
-    title: "Email Us",
+    title: "راسلنا",
     value: "support@safepips.com",
-    description: "We'll respond within 24 hours",
+    description: "سنرد خلال 24 ساعة",
   },
   {
     icon: MessageSquare,
-    title: "Live Chat",
-    value: "Available on platform",
-    description: "Instant support for members",
+    title: "الدردشة الحية",
+    value: "متاح على المنصة",
+    description: "دعم فوري للأعضاء",
   },
   {
     icon: Clock,
-    title: "Support Hours",
+    title: "ساعات الدعم",
     value: "24/7",
-    description: "Round-the-clock assistance",
+    description: "مساعدة على مدار الساعة",
   },
 ];
 
@@ -44,8 +44,8 @@ const Contact = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
     
     toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
+      title: "تم إرسال الرسالة!",
+      description: "سنتواصل معك في أقرب وقت ممكن.",
     });
     
     setFormData({ name: "", email: "", subject: "", message: "" });
@@ -70,11 +70,11 @@ const Contact = () => {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Get In <span className="gold-text">Touch</span>
+              <span className="text-foreground">تواصل </span>
+              <span className="gold-text">معنا</span>
             </h1>
             <p className="text-muted-foreground text-lg">
-              Have questions? We'd love to hear from you. Send us a message 
-              and we'll respond as soon as possible.
+              لديك أسئلة؟ يسعدنا سماعك. أرسل لنا رسالة وسنرد في أقرب وقت.
             </p>
           </motion.div>
 
@@ -104,7 +104,7 @@ const Contact = () => {
 
               {/* Social Links */}
               <div className="card-elevated rounded-xl p-6">
-                <h3 className="font-semibold text-foreground mb-4">Follow Us</h3>
+                <h3 className="font-semibold text-foreground mb-4">تابعنا</h3>
                 <div className="flex gap-3">
                   {["Twitter", "LinkedIn", "YouTube", "Telegram"].map((social) => (
                     <a
@@ -130,7 +130,7 @@ const Contact = () => {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Full Name
+                      الاسم الكامل
                     </label>
                     <input
                       type="text"
@@ -140,12 +140,12 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                      placeholder="John Doe"
+                      placeholder="محمد أحمد"
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email Address
+                      البريد الإلكتروني
                     </label>
                     <input
                       type="email"
@@ -155,14 +155,14 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                      placeholder="john@example.com"
+                      placeholder="example@email.com"
                     />
                   </div>
                 </div>
 
                 <div className="mb-6">
                   <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                    Subject
+                    الموضوع
                   </label>
                   <select
                     id="subject"
@@ -172,19 +172,19 @@ const Contact = () => {
                     required
                     className="w-full px-4 py-3 rounded-xl bg-muted border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
                   >
-                    <option value="">Select a topic</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="subscription">Subscription Questions</option>
-                    <option value="signals">Signal Support</option>
-                    <option value="technical">Technical Issue</option>
-                    <option value="billing">Billing & Payments</option>
-                    <option value="partnership">Partnership</option>
+                    <option value="">اختر موضوعاً</option>
+                    <option value="general">استفسار عام</option>
+                    <option value="subscription">أسئلة الاشتراك</option>
+                    <option value="signals">دعم الإشارات</option>
+                    <option value="technical">مشكلة تقنية</option>
+                    <option value="billing">الفوترة والمدفوعات</option>
+                    <option value="partnership">الشراكة</option>
                   </select>
                 </div>
 
                 <div className="mb-6">
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message
+                    الرسالة
                   </label>
                   <textarea
                     id="message"
@@ -194,7 +194,7 @@ const Contact = () => {
                     required
                     rows={6}
                     className="w-full px-4 py-3 rounded-xl bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
-                    placeholder="How can we help you?"
+                    placeholder="كيف يمكننا مساعدتك؟"
                   />
                 </div>
 
@@ -204,10 +204,10 @@ const Contact = () => {
                   className="btn-gold w-full py-4 rounded-xl font-semibold flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   {isSubmitting ? (
-                    "Sending..."
+                    "جاري الإرسال..."
                   ) : (
                     <>
-                      Send Message
+                      إرسال الرسالة
                       <Send className="w-4 h-4" />
                     </>
                   )}

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
-  TrendingUp, 
   Target, 
   BookOpen, 
   Shield,
@@ -9,10 +8,14 @@ import {
   Star,
   Users,
   Award,
-  ArrowLeft
+  ArrowLeft,
+  Menu,
+  X,
+  TrendingUp
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import logo from "@/assets/logo.png";
 
 // Stats data for horizontal slider
 const stats = [
@@ -102,12 +105,10 @@ const Index = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
               <span className="text-lg font-bold">
-                <span className="gold-text">Pips</span>
-                <span className="text-white"> Safe</span>
+                <span className="gold-text">Safe</span>
+                <span className="text-white"> Pips</span>
               </span>
-              <div className="w-8 h-8 gold-gradient rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-4 h-4 text-black" />
-              </div>
+              <img src={logo} alt="Safe Pips Logo" className="w-10 h-10 object-contain" />
             </Link>
           </div>
         </nav>
